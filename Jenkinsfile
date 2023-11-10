@@ -7,19 +7,20 @@ pipeline {
     maven 'maven3'
     }
 
-    stages {
-        stage("clean workspace") {
-            steps {
-                cleanWs{}
-            }
-        }
-        
-        }
-        
-        stage("checkout from SCM") {
-            steps {
-                git branch: 'main', CredentialsID: 'github', url: 'https://github.com/pankaj04101986/complete-prodcution-e2e-pipeline.git'
-            }
     }
+    stages{
+        stage("Cleanup Workspace"){
+            steps {
+                cleanWs()
+            }
+
+        }
+
+        stage("Checkout from SCM"){
+            steps {
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/pankaj04101986/complete-prodcution-e2e-pipeline.git'
+            }
+
+        }
 }
 
