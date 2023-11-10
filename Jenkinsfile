@@ -8,7 +8,7 @@ pipeline {
     }
 
     stages {
-        stage('clean workspace') {
+        stage("clean workspace") {
             steps {
                 cleanWs{}
             }
@@ -16,7 +16,7 @@ pipeline {
         
         }
         
-        stage('git checkout') {
+        stage("checkout from SCM") {
             steps {
                 git branch: 'main', CredentialsID: 'github', url: 'https://github.com/pankaj04101986/complete-prodcution-e2e-pipeline.git'
             }
